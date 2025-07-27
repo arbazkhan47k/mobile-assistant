@@ -1,44 +1,15 @@
-from openai import OpenAI
 import gradio as gr
+import google.generativeai as genai
 
-# 🔐 Gemini API Key (keep private)
-GEMINI_KEY = "AIzaSyB2d9IkC5uUUC3-BJ0_9hx_HXRIngE5QLk"
-
-# 🔧 Gemini model setup using OpenAI-compatible wrapper
-gemini_model = OpenAI(
-    api_key=GEMINI_KEY,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
-)
+# 🔐 Gemini API Key
+genai.configure(api_key="AIzaSyB2d9IkC5uUUC3-BJ0_9hx_HXRIngE5QLk")
 
 # 📱 Mobile Assistant Function
 def mobile_assistant(query):
-    prompt = [
-        {
-            "role": "system",
-            "content": (
-                "You are a mobile assistant for Indian users. "
-                "When a user types a mobile phone name, return the following details:\n\n"
-                "- 📱 Mobile Name\n"
-                "- 💰 Price in India (₹)\n"
-                "- ⚙️ Processor Name\n"
-                "- 🌟 Key Features\n"
-                "- 📸 Camera Lens Details (Rear & Front)\n"
-                "- 🔄 Year or Month of Latest Update (if known)\n\n"
-                "Reply clearly and simply."
-            )
-        },
-        {
-            "role": "user",
-            "content": query
-        }
-    ]
-
+    model = genai.GenerativeModel("gemini-pro")
     try:
-        response = gemini_model.chat.completions.create(
-            model="gemini-2.5-flash",
-            messages=prompt
-        )
-        return response.choices[0].message.content.strip()
+        response = model.generate_content(query)
+        return response.text.strip()
     except Exception as e:
         return f"❌ Error: {str(e)}"
 
