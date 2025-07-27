@@ -1,0 +1,23 @@
+
+---
+
+### ✅ 4. `LinkedIn_post.txt`
+
+```txt
+🚀 Project Completed – Mobile Assistant using Gemini + Gradio! 📱
+
+Built an AI-based mobile phone advisor for Indian users. Just type a mobile name like “iPhone 15 Pro Max” or “Realme Narzo 70x” and instantly get:
+
+- 💰 Price in India
+- ⚙️ Processor Name
+- 📸 Camera Info
+- 🌟 Key Features
+- 🔄 Launch/Update Date
+
+✅ Built using Python + Gradio  
+⚡ Powered by Gemini (OpenAI-compatible wrapper)
+
+🔗 GitHub: https://github.com/arbazkhan47k/mobile-assistant  
+🌐 Live Demo: https://huggingface.co/spaces/arbazkhan47k/mobile-assistant
+
+#AI #Gradio #Gemini #MobileTech #OpenSource #PythonProjects #LinkedInProjects
