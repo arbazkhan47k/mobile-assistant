@@ -1,8 +1,11 @@
 from openai import OpenAI
 import gradio as gr
+from dotenv import load_dotenv
+import os
 
-# 🔐 Gemini API Key (keep private)
-GEMINI_KEY = "AIzaSyB2d9IkC5uUUC3-BJ0_9hx_HXRIngE5QLk"
+# ✅ Load .env file and get API key securely
+load_dotenv()
+GEMINI_KEY = os.getenv("GEMINI_API_KEY")
 
 # 🔧 Gemini model setup using OpenAI-compatible wrapper
 gemini_model = OpenAI(
